@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Session Timed Out</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    /* Apply a nice gradient background */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  color: white;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 1s ease-in;
+}
+
+/* Center content */
+.container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/* h1 styling */
+h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  animation: slideIn 1s ease-out;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #ffffff;
+    background: #ff4d4f;
+    padding: 10px 20px;
+    border-radius: 10px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Slide in from top */
+@keyframes slideIn {
+  from {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+</style>
+<body>
+  <div class="container">
+    <h1>⏰ Session Timed Out</h1>
+    <h3>Your payment session has expired for security reasons.</h3>
+    <button 
+    onclick="localStorage.removeItem('timerStart'); window.location.href='index.html';"
+    style="padding: 12px 24px; font-size: 16px; background-color: #eb362a; color: white; border: none; border-radius: 6px; cursor: pointer;">
+    Start Again
+    </button>
+
+  </div>
+</body>
+</html>
