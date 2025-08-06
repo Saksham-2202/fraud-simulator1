@@ -2,11 +2,15 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #e9fafc, #71d7e4);
+    background-image: url(bankImg.avif);
     display:0;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 120vh;
+    background-size: cover;         /* Scales the image to cover the entire background */
+    background-repeat: no-repeat;   /* Prevents image repetition */
+    background-position: center; 
+    
 }
 
 .container {
@@ -24,10 +28,23 @@ body {
     
 
 }
+.fade-out {
+  animation: fadeOut 0.5s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
 
     
 .card {
-    background-color: white;
+    background: linear-gradient(to right, #bad3fe, #649bf9);
     padding: 70px;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -39,7 +56,7 @@ body {
 
 
 h1 {
-    color: #097266;
+    color: #ffffff;
     margin-bottom: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -107,7 +124,7 @@ p {
 }
 
 .transaction-id {
-    margin-top: -5px;
+    margin-top: 5px;
     font-weight: bold;
     color: #333;
     font-size: 16px;
@@ -185,8 +202,12 @@ p {
 #timer {
     top: 10px;
     right: 20px;
-    background-color: #ffeeba;
+    color: #ffffff;
     padding: 10px;
     border-radius: 8px;
     font-weight: bold;
+    margin-top: -40px;
+    font-size: larger;
   }
+
+

