@@ -168,6 +168,7 @@ p#mess, p {
   border: 3px solid #d4af37;
   border-radius: 20px;
   box-shadow: 0 0 12px rgba(212, 175, 55, 0.7);
+  margin-left: -5px;
 }
 
 .transaction-id {
