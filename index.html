@@ -2,17 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
     <title>Fraud Simulation - Step 1</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+     <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
     <div id="name">
-        <h1>TEAM UR4NIUM </h1><br><br>
+        <h1 id="heading"> GLOBAL REWARD CENTER</h1><br><br>
         <div class="timer-container">
         <p id="timer">⏳ Time left: <span id="countdown">30</span> seconds</p>
+        
         </div>
+        
         <script>
         // ✅ Reset the timer if user comes back to homepage
         localStorage.setItem("timerStart", Date.now());
@@ -21,7 +27,7 @@
     </div>
     <div class="container">
         <div class="card">
-
+           <div class="claim-id">Claim ID: RWX-92847</div>
             <h1>You've Won a Reward!</h1>
             <p id="mess">Your mobile number has been randomly selected as the exclusive winner of our ₹50,000 Lucky Draw! To instantly claim your reward, scan the QR code on the next page and complete the verification payment.</p>
             <p>Click "Yes" to claim your prize or "No" to ignore this message.</p>
@@ -29,6 +35,7 @@
                 <button onclick="handleYes();goToNextPage()" class="btn_green">Yes</button>
                 <button class="btn_red" onclick="alert('Great! You successfully avoided a potential fraud.')">No</button>
             </div>
+            
             <!-- Loader (initially hidden) -->
             <div id="loader" class="loader" style="display: none;"></div>
         </div>
