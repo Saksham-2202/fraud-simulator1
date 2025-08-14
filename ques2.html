@@ -26,16 +26,18 @@
             <p id="mess">We’ve detected unusual login activity from your bank account. To prevent your account from being blocked permanently, please verify your identity immediately. Do you want to start the verification process?</p>
             <p>Click "Yes" to start the verification process or "No" to ignore this message.</p>
             <div class="button-group">
-                <button onclick="handleYes();goToNextPage()" class="btn_green">Yes</button>
-                <button class="btn_red" onclick="alert('Great! You successfully avoided a potential fraud.')">No</button>
+                <button onclick="handleYes();goToNextPage();saveAnswer('Yes')" class="btn_green">Yes</button>
+                <button class="btn_red" onclick="saveAnswer('No')">No</button>
             </div>
+            <p id="saved-answer" style="margin-top: 15px; font-weight: bold;"></p>
             <!-- Loader (initially hidden) -->
             <div id="loader" class="loader" style="display: none;"></div>
         </div>
     </div>
 
     <script>// Show loader, then show next content
-        function handleYes() {
+    
+    function handleYes() {
     // Start timer on Yes click
     localStorage.setItem("timerStart", Date.now());
 
@@ -80,8 +82,52 @@
 
     initTimer();
 
+    
+    // Save the answer in localStorage
+    function saveAnswer(answer, nextPage) {
+    localStorage.setItem("userChoice", answer);
+
+    if (answer === "No") {
+        // Create overlay for background blur/dark
+        const overlay = document.createElement("div");
+        overlay.id = "overlay";
+        document.body.appendChild(overlay);
+         // Create popup
+        const popup = document.createElement("div");
+        popup.id = "result-popup";
+        popup.innerText = "✅ Great! You successfully avoided a potential fraud. Redirecting to home page...";
+        document.body.appendChild(popup);
+
+
+        setTimeout(() => {
+            overlay.classList.add("show");
+            popup.classList.add("show");
+        }, 100);
+
+        setTimeout(() => {
+            window.location.href = "index.html";
+        }, 5000);
+    }
+    else {
+        // YES → Redirect to the next page
+        window.location.href = "ques3.html";
+        document.getElementById("saved-answer").innerText =
+        "Previously you selected: " + saved;
+    }
+    }
+    
+
+    // When page loads, restore the saved answer
+    window.onload = function () {
+    const saved = localStorage.getItem("userChoice");
+    if (saved) {
+    document.getElementById("saved-answer").innerText =
+      "Previously you selected: " + saved;
+    }
+    };
+
     </script>
 
-
+ 
 </body>
 </html>

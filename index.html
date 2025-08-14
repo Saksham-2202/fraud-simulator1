@@ -1,95 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
-    <title>Fraud Simulation</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Reward Center</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-     <div class="confetti"></div>
-            <div class="confetti"></div>
-            <div class="confetti"></div>
-            <div class="confetti"></div>
-    <div id="name">
-        <h1 id="heading"> GLOBAL REWARD CENTER</h1><br><br>
-        <div class="timer-container">
-        <p id="timer">⏳ Time left: <span id="countdown">30</span> seconds</p>
-        
-        </div>
-        
-        <script>
-        // ✅ Reset the timer if user comes back to homepage
-        localStorage.setItem("timerStart", Date.now());
-       </script>
+    <h1 id="heading"> GLOBAL REWARD CENTER</h1><br><br>
+  <div id="reward-home-container">
+  <div id="reward-banner">✨🏆 Limited Time Offer 🏆✨</div>
+  
+  <h1 id="reward-title"> Welcome to the Global Reward Center </h1>
+  <p id="reward-subtitle">Your gateway to exclusive rewards and offers.</p>
+ 
+  <div id="trust-badges">
+    <span>🔒 100% Secure</span>
+    <span>✅ Verified Rewards</span>
+    <span>⭐ Trusted by Thousands</span>
+  </div>
 
-    </div>
-    <div class="container">
-        <div class="card">
-           <div class="claim-id">Claim ID: RWX-92847</div>
-            <h1>You've Won a Reward!</h1>
-            <p id="mess">Your mobile number has been randomly selected as the exclusive winner of our ₹50,000 Lucky Draw! To instantly claim your reward, scan the QR code on the next page and complete the verification payment.</p>
-            <p>Click "Yes" to claim your prize or "No" to ignore this message.</p>
-            <div class="button-group">
-                <button onclick="handleYes();goToNextPage()" class="btn_green">Yes</button>
-                <button class="btn_red" onclick="alert('Great! You successfully avoided a potential fraud.')">No</button>
-            </div>
-            
-            <!-- Loader (initially hidden) -->
-            <div id="loader" class="loader" style="display: none;"></div>
-        </div>
-    </div>
-
-    <script>// Show loader, then show next content
-        function handleYes() {
-    // Start timer on Yes click
-    localStorage.setItem("timerStart", Date.now());
-
-    document.querySelectorAll("button").forEach(btn => btn.style.display = 'none');
-    document.getElementById("loader").style.display = 'block';
-
-    setTimeout(() => {
-    window.location.href = "ques2.html";
-        }, 2000);
-    }
-
-    function goToNextPage() {
-    document.body.classList.add('fade-out');
-    setTimeout(() => {
-    window.location.href = 'ques2.html'; // Replace with your actual page
-    }, 500); // Match this to the animation duration (0.5s)
-    }
+  <button id="reward-start-btn" onclick="startRewardQuiz()">Claim Your Reward</button>
+  <footer id="reward-footer">
+  <p>© 2025 Global Reward Center | All Rights Reserved</p>
+  </footer>
+</div>
 
 
-    const totalTime = 30; // total seconds
-    const timerElement = document.getElementById("countdown");
-
-    function initTimer() {
-        const startTime = parseInt(localStorage.getItem("timerStart"));
-
-    function updateTimer() {
-      const now = Date.now();
-      const elapsed = Math.floor((now - startTime) / 1000);
-      const remaining = totalTime - elapsed;
-
-    if (remaining < 0) {
-        clearInterval(interval);
-        window.location.href = "timeout.html";
-    } else {
-        timerElement.textContent = remaining;
-      }
-    }
-
-    updateTimer();
-    const interval = setInterval(updateTimer, 1000);
-    }
-
-    initTimer();
-
-
-    </script>
-
+<script>
+function startRewardQuiz() {
+  window.location.href = "ques1.html"; // change to your quiz page
+}
+</script>
 
 </body>
 </html>

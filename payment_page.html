@@ -20,9 +20,10 @@
             
             <div id="quiz" style="display:none; margin-top: 20px;">
                 <p id="genuine"><strong>Was this a genuine message?</strong></p>
-            <button  id="payButton" class="btn_red"  onclick="alert('Oops! It was fake.'); redirect() ">Yes</button>
-            <button  id="paybutton" class="btn_green" id="greenPay" onclick="alert('Correct! It was fake.'); redirect()">No</button>
+            <button  id="payButton" class="btn_red"  onclick="redirect();saveAnswer('Yes')">Yes</button>
+            <button  id="paybutton" class="btn_green" id="greenPay" onclick="redirect();saveAnswer('No')">No</button>
             </div>
+            <p id="saved-answer" style="margin-top: 15px; font-weight: bold;"></p>
         </div>
     </div>
     <script>
@@ -32,11 +33,11 @@
         function redirect(){
             setTimeout(() => {
             window.location.href = "thank_you.html"; // make sure this file exists
-            }, 1000);
+            }, 2200);
         }
 
 
-    const totalTime = 60;
+    //const totalTime = 60;
     const timerElement = document.getElementById("countdown");
 
     function initTimer() {
@@ -68,6 +69,59 @@
     }
 
     initTimer();
+
+    // Save the answer in localStorage
+    function saveAnswer(answer) {
+    localStorage.setItem("userChoice", answer);
+
+    if (answer === "No") {
+    // Create overlay for background blur/dark
+    const overlay = document.createElement("div");
+    overlay.id = "overlay";
+    document.body.appendChild(overlay);
+    // pop up
+    const popup = document.createElement("div");
+    popup.id = "result-popup";
+    popup.innerText = "✅ Correct! This was fake.";
+    document.body.appendChild(popup);
+
+    setTimeout(() => {
+      overlay.classList.add("show");
+      popup.classList.add("show");
+    }, 100);
+
+    setTimeout(() => {
+      window.location.href = "thank_you.html"; // change to your thank you page name
+    }, 8000);
+
+    } else {
+    const popup = document.createElement("div");
+    popup.id = "result-popup";
+    popup.innerText = "No ! This was fake.";
+    document.body.appendChild(popup);
+
+    setTimeout(() => {
+      popup.classList.add("show");
+    }, 500);
+
+    setTimeout(() => {
+      window.location.href = "thank_you.html"; // change to your thank you page name
+    }, 3000);
+
+    document.getElementById("saved-answer").innerText =
+      "You selected: " + answer;
+    }
+    }
+    
+
+    // When page loads, restore the saved answer
+    window.onload = function () {
+    const saved = localStorage.getItem("userChoice");
+    if (saved) {
+    document.getElementById("saved-answer").innerText =
+      "Previously you selected: " + saved;
+    }
+    };
 
     </script>
 </body>

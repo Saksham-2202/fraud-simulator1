@@ -2,17 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fraud Simulation - Step 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+    <title>Fraud Simulation</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+     <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
     <div id="name">
-       <h1 id="heading"> GLOBAL REWARD CENTER</h1><br><br>
+        <h1 id="heading"> GLOBAL REWARD CENTER</h1><br><br>
         <div class="timer-container">
         <p id="timer">⏳ Time left: <span id="countdown">30</span> seconds</p>
+        
         </div>
+        
         <script>
         // ✅ Reset the timer if user comes back to homepage
         localStorage.setItem("timerStart", Date.now());
@@ -21,15 +27,17 @@
     </div>
     <div class="container">
         <div class="card">
-
-            <h1>Limited Time Offer!</h1>
-            <p id="mess">You’ve just won a brand-new iPhone 15 in our nationwide lucky draw contest. To receive your phone, we only need your delivery address and a small processing fee. Would you like to continue and provide the required details?</p>
+           <div class="claim-id">Claim ID: RWX-92847</div>
+            <h1>You've Won a Reward!</h1>
+            <p id="mess">Your mobile number has been randomly selected as the exclusive winner of our ₹50,000 Lucky Draw! To instantly claim your reward, scan the QR code on the next page and complete the verification payment.</p>
             <p>Click "Yes" to claim your prize or "No" to ignore this message.</p>
             <div class="button-group">
-                <button onclick="handleYes();saveAnswer('Yes')" class="btn_green">Yes</button>
+                <button onclick="handleYes();goToNextPage();saveAnswer('Yes')" class="btn_green">Yes</button>
                 <button class="btn_red" onclick="saveAnswer('No')">No</button>
+
             </div>
             <p id="saved-answer" style="margin-top: 15px; font-weight: bold;"></p>
+            
             <!-- Loader (initially hidden) -->
             <div id="loader" class="loader" style="display: none;"></div>
         </div>
@@ -44,14 +52,14 @@
     document.getElementById("loader").style.display = 'block';
 
     setTimeout(() => {
-    window.location.href = "payment_page.html";
+    window.location.href = "ques2.html";
         }, 2000);
     }
 
     function goToNextPage() {
     document.body.classList.add('fade-out');
     setTimeout(() => {
-    window.location.href = 'payment_page.html'; // Replace with your actual page
+    window.location.href = 'ques2.html'; // Replace with your actual page
     }, 500); // Match this to the animation duration (0.5s)
     }
 
@@ -107,20 +115,12 @@
     } 
     else {
         // YES → Redirect to the next page
-        window.location.href = "payment_page.html";
+        window.location.href = "ques2.html";
         document.getElementById("saved-answer").innerText =
         "Previously you selected: " + saved;
     }
 }
 
-    // When page loads, restore the saved answer
-    window.onload = function () {
-    const saved = localStorage.getItem("userChoice");
-    if (saved) {
-    document.getElementById("saved-answer").innerText =
-      "Previously you selected: " + saved;
-    }
-    };
 
     </script>
 

@@ -3,6 +3,89 @@
   box-sizing: border-box;
 }
 
+/* home page start styling.. */
+
+#reward-home-container {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(15px);
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  max-width: 500px;
+  width: 90%;
+  animation: fadeIn 1s ease-in-out;
+  margin-top: 60px;
+}
+
+/* Banner */
+#reward-banner {
+  background: linear-gradient(90deg, #FFD700, #FFC107);
+  color: black;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+/* Title */
+#reward-title {
+  color: #604717dd;
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+}
+
+/* Subtitle */
+#reward-subtitle {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+/* Trust badges */
+#trust-badges {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  color: #211602dd;
+}
+
+/* Button with glow */
+#reward-start-btn {
+  background: linear-gradient(90deg, #ff6a00, #ee0979);
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+  margin-bottom: 12px;
+  margin-top: 10px;
+}
+
+#reward-start-btn:hover {
+  background: linear-gradient(90deg, #ee0979, #ff6a00);
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.8);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#reward-footer{
+  margin-bottom: -40px;
+}
+
+/* then after ques1 */
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -314,6 +397,50 @@ p#mess, p {
 .container a:hover {
   text-decoration: underline;
 }
+
+/* Dark blurred background */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(80, 79, 79, 0.5);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+}
+
+#overlay.show {
+    opacity: 1;
+}
+
+/* payment page popup */
+
+#result-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: white;
+  color: black;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  z-index: 9999;
+}
+
+#result-popup.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
 
 .footer {
   background-color: #222;        /* Dark background */
